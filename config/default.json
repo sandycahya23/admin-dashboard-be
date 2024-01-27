@@ -8,5 +8,44 @@
   "paginate": {
     "default": 10,
     "max": 50
+  },
+  "mysql": {
+    "client": "mysql",
+    "connection": "mysql://root:@localhost:3306/admin-dashboard-be"
+  },
+  "authentication": {
+    "entity": "user",
+    "service": "users",
+    "secret": "8COeH/ZOCrKGSAu74GTqhKGlAhyVDH9q",
+    "authStrategies": [
+      "jwt",
+      "local"
+    ],
+    "jwtOptions": {
+      "header": {
+        "typ": "access"
+      },
+      "audience": "https://yourdomain.com",
+      "algorithm": "HS256",
+      "expiresIn": "1d"
+    },
+    "local": {
+      "usernameField": "email",
+      "passwordField": "password"
+    },
+    "oauth": {
+      "google": {
+        "key": "<Client ID>",
+        "secret": "<Client secret>"
+      },
+      "facebook": {
+        "key": "<Client ID>",
+        "secret": "<Client secret>"
+      },
+      "twitter": {
+        "key": "<Client ID>",
+        "secret": "<Client secret>"
+      }
+    }
   }
 }

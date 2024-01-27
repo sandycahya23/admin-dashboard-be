@@ -40,21 +40,28 @@
     "start": "node lib/",
     "prettier": "npx prettier \"**/*.ts\" --write",
     "mocha": "cross-env NODE_ENV=test mocha test/ --require ts-node/register --recursive --extension .ts --exit",
-    "test": "npm run mocha",
-    "bundle:client": "npm run compile && npm pack --pack-destination ./public"
+    "test": "cross-env NODE_ENV=test npm run migrate && npm run mocha",
+    "bundle:client": "npm run compile && npm pack --pack-destination ./public",
+    "migrate": "knex migrate:latest",
+    "migrate:make": "knex migrate:make"
   },
   "dependencies": {
     "@feathersjs/adapter-commons": "^5.0.21",
     "@feathersjs/authentication": "^5.0.21",
     "@feathersjs/authentication-client": "^5.0.21",
+    "@feathersjs/authentication-local": "^5.0.21",
+    "@feathersjs/authentication-oauth": "^5.0.21",
     "@feathersjs/configuration": "^5.0.21",
     "@feathersjs/errors": "^5.0.21",
     "@feathersjs/feathers": "^5.0.21",
+    "@feathersjs/knex": "^5.0.21",
     "@feathersjs/koa": "^5.0.21",
     "@feathersjs/schema": "^5.0.21",
     "@feathersjs/socketio": "^5.0.21",
     "@feathersjs/transport-commons": "^5.0.21",
     "@feathersjs/typebox": "^5.0.21",
+    "knex": "^3.1.0",
+    "mysql": "^2.18.1",
     "winston": "^3.11.0"
   },
   "devDependencies": {
